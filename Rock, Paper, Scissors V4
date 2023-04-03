@@ -1,0 +1,92 @@
+import random
+
+def choose_rps():
+    "output: randomly returns rock, paper, or scissors"
+    rsp=['rock', 'paper', 'scissors']
+    r = random.randint(0,2)
+    return rsp[r]
+
+def play_again():
+    r = random.randint(0, 1)
+    return r ==1
+
+def play_again2():
+    play = random.choice([True, False])
+    return play
+
+def play_again_choice():
+  print('Do you want to play again?')
+  user_input = input()
+  while  user_input.lower() != 'yes' and user_input.lower() != 'no':
+      print('Type \'yes\' or \'no\', please.')
+      user_input = input()
+  if user_input.lower() == 'yes':
+    return True
+  elif user_input.lower() == 'no':
+    return False
+    
+    
+  
+
+def play_again_weighted():
+  r = random.randint(0,2)
+  if r == 0:
+      return 1
+  elif r == 1:
+      return 1
+  else:
+      return 0
+def play_rps(player1, player2):
+  """
+    input: player1 and player2 -> rock, paper, scissors
+    output: Player1 wins, Player2 wins, It's a tie
+  """
+ 
+  #input check
+  if player1 != 'rock' and  player1 !='paper'and  player1 !='scissors':
+        print('Player1 must play rock, paper, or scissors!')
+  elif player2 != 'rock' and player2 !='paper' and player2 !='scissors':
+          print('Player2 must play rock, paper, or scissors!')
+  #tie 
+  elif player1 == player2:
+      print("It's a tie!")
+  #player 2 == rock
+  elif player2 == 'rock':
+      if player1 == 'scissors':
+          print('Player 2 won!')
+      else:
+          print('Player 1 won!')
+  #player2 == paper 
+  elif player2 == 'paper':
+      if player1 == "rock":
+        print("Player 2 won!")
+      else:
+          print('Player 1 won!')
+  #player2 == scissors
+  elif player2 == "scissors":
+      if player1 == 'paper':
+          print('Player 2 won!')
+      else:
+          print('Player 1 won!')
+  else:
+      print('Players must play rock, paper, or scissors!')
+  return print('\nNice game!')
+
+
+
+# Automatic game
+def auto_rps():
+  print('Welcome to Rock, Paper, Scissors!\n\n_ _ _ _ _')
+  play = True
+  while play:
+    player1 = choose_rps()
+    player2 = choose_rps()
+    print(f'\n\n Player1 choose {player1}')
+    print(f' Player2 choose {player2}\n\n')
+    play_rps(player1, player2)
+    print('\n\n_ _ _ _ _')
+    #Choose play again option (automatic v1, automatic v2, choice, automatic weighted)
+    play=play_again_choice()
+  print('\nThank you for playing!')
+
+auto_rps()
