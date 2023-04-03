@@ -1,0 +1,72 @@
+import random
+
+# hard code names
+names =  list(map(str.upper,["Abby Carlin", "Katy Perkins", "Anna Choe", "Evan Choe", "Peter Edwards", "test two"]))
+
+# # request student names
+# names=[]
+# student_name=input('Enter the first and last name of the student.')
+# names.append(student_name)
+# check_for_more = input('Do you want add another student? Type \'yes\' or \'no\'.') 
+# while  True:
+#   if check_for_more !='yes' and check_for_more != "no": 
+#     check_for_more = input('Type \'yes\' or \'no\', please.') 
+#     continue
+#   elif check_for_more == 'yes':
+#     student_name=input('Okay, please nter the first and last name of the next student.')
+#     names.append(student_name)
+#     check_for_more = input('Do you want add another student? Type \'yes\' or \'no\'.') 
+#     continue
+#   else:
+#     if check_for_more == 'no':
+#       break
+
+
+#check num of names
+num_names=len(names)
+
+ #create ID numbers
+# while len(id_nums)==0:
+id_nums=[]
+for x in range(num_names): # could also say for x in names
+  new_id=str(random.randint(111111,999999))
+  id_check= id_nums.count(new_id)
+  while id_check != 0:
+    new_id=str(random.randint(111111,999999))
+    id_check= id_nums.count(new_id)
+    continue
+  else: 
+    id_nums.append(new_id)
+    
+
+#creating emails
+separate=[]
+first=[]
+last=[]
+id=[]
+emails=[]
+for x in range(num_names):
+  #extract 1st letter first name
+  first.append(names[x][0])
+  #extract last name
+  separate.append(names[x].split(" "))
+  last.append(separate[x][1])
+  #extract last 3 id numnbers
+  id.append(id_nums[x][-3:])
+#   #add all the email parts together
+  emails.append(f'{first[x]}{last[x]}{id[x]}@example.org')
+
+# #Course Alternative:
+# for name in names:
+  # [first,last] = name.split(" ")
+  #   emails.append(first[0]+last+str(ids[i])[-3:]+"@adadev.org")
+
+# make dictionary of student data
+student_data=[]
+for x in range(num_names):
+  new_student = {'name': names[x], 'id': id_nums[x], 'email': emails[x],}
+  # student_data={x+1:new_student} # this creates a dictionary of the dictionaries
+  student_data.append(new_student)
+  
+student_data[3]['email']
+# print dictionary of student data
