@@ -1,0 +1,25 @@
+def madlib_game():
+  #ask for words
+  print('Welcome to my MadLib program.\n To start, I need some suggestions from you')
+  entry={}
+  answers=[]
+  pop=["a name", 'an adjective', 'a noun', 'another adjective', 'a food(plural)', 'a noun(plural)', 'an action verb ending in \'-ed\'', 'one more noun' ]
+  #create dictionary
+  for word in range(len(pop)):
+    answer = input(f'Give me {pop[word]}:  ')
+    answers.append(answer)
+  entry=dict(zip(pop,answers))
+
+  print(f'\n\n\n')
+
+  print(f'HERE\'S YOUR MADLIB.......\n\
+  Come on over to {entry[pop[0]]}’s Pizza Parlor where you can\n\
+  enjoy your favorite {entry[pop[1]]}-dish pizza`s.\n\
+  You can try our famous {entry[pop[2]]}-lovers pizza,\n\
+  or select from our list of {entry[pop[3]]}  toppings,\n\
+  including delicious {entry[pop[4]]}, {entry[pop[5]]}, and many more.\n\
+  Our crusts are hand-{entry[pop[6]]} and basted in {entry[pop[7]]}  to make\n\
+  them seem more hand-made.')
+
+
+madlib_game()
